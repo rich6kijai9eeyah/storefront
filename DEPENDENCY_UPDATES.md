@@ -73,6 +73,7 @@ This document tracks the dependency update process performed on 2025-11-11. The 
 - ✅ **GraphQL CodeGen config**: Fixed PositiveInt scalar type, generates successfully with valid API
 - ✅ **esbuild compatibility**: Version mismatch resolved, dev server starts correctly
 - ⚠️ **Type checking**: Expected errors due to missing GraphQL codegen (requires API setup)
+- ✅ **Multi-environment support**: Fixed build conflicts between environments
 - 🔄 **Build process**: Ready to test (requires environment configuration)
 - 🔄 **Runtime testing**: Ready to test (requires full application setup)
 
@@ -114,6 +115,11 @@ This document tracks the dependency update process performed on 2025-11-11. The 
 1. **Husky pre-commit hook**: Changed from `pnpm exec lint-staged` to `npx lint-staged`
 2. **Package manager compatibility**: Maintained support for both npm and pnpm
 3. **Node.js version**: Updated minimum Node.js requirement (already specified as >=20 in package.json)
+4. **Multi-environment builds**:
+   - Created separate build directories: `build/` (dev), `build-production/`, `build-test/`
+   - Added environment-specific SvelteKit configurations
+   - Fixed parallel environment execution conflicts
+   - Added port conflict detection script
 
 ---
 
