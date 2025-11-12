@@ -23,7 +23,7 @@
 		"start:dev": "npx dotenv-cli -e .env.development -- npm --silent run dev",
 		"start:prod": "npx dotenv-cli -e .env.production -- npm --silent run start",
 		"start:test": "npx dotenv-cli -e .env.test -- npm --silent run start",
-		"serve:dev": "npx dotenv-cli -e .env.development -- vite dev --port 3000",
+		"serve:dev": "npx dotenv-cli -e .env.development -- vite dev",
 		"serve:prod": "npx dotenv-cli -e .env.production -- node build-production/index.js",
 		"serve:test": "npx dotenv-cli -e .env.test -- node build-test/index.js",
 		"install:browsers": "pnpm exec playwright install",
