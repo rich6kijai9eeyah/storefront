@@ -22,6 +22,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Install bash for scripts
+RUN apk add --no-cache bash
+RUN chmod +x ./scripts/*.sh
+
 # Environment variables for SvelteKit build
 ARG PUBLIC_SALEOR_API_URL
 ENV PUBLIC_SALEOR_API_URL=${PUBLIC_SALEOR_API_URL}
