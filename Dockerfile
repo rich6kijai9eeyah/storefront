@@ -13,6 +13,7 @@ RUN corepack enable
 COPY package.json pnpm-lock.yaml ./
 COPY scripts/ ./scripts/
 RUN chmod +x ./scripts/*.sh
+ENV DOCKER_BUILD=true
 RUN pnpm i --frozen-lockfile --prefer-offline
 
 # Rebuild the source code only when needed

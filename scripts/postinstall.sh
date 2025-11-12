@@ -3,6 +3,13 @@ set -e
 
 echo "🔄 Running postinstall setup..."
 
+# Skip complex setup during Docker build
+if [ "$DOCKER_BUILD" = "true" ]; then
+    echo "🐳 Docker build detected - skipping complex postinstall steps"
+    echo "✅ Postinstall setup completed (Docker mode)!"
+    exit 0
+fi
+
 # 1. First run svelte-kit sync to create .svelte-kit directory and types
 echo "📦 Running svelte-kit sync..."
 if command -v pnpm > /dev/null 2>&1; then
