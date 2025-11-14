@@ -7,8 +7,14 @@ export default defineConfig(({ mode }) => {
 	// - production для build
 	console.log(`🎨 Vite mode: ${mode}, NODE_ENV: ${process.env.NODE_ENV}`);
 
+	// Определяем среду по порту для изоляции кеша
+	const port = parseInt(process.env.PORT || "3000");
+	const envSuffix = port === 3001 ? "production" : port === 3002 ? "test" : "development";
+
 	return {
 		plugins: [sveltekit()],
+		// Изоляция кешей между средами
+		cacheDir: `.vite-cache-${envSuffix}`,
 		server: {
 			port: parseInt(process.env.PORT || "3000"),
 			host: "127.0.0.1", // Явная привязка к localhost
