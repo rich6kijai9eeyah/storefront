@@ -12,7 +12,7 @@ The following dependencies have been safely updated:
 
 - `@types/node`: `24.10.0` → `24.10.1`
 - `svelte-check`: `^4.3.3` → `^4.3.4`
-- `@esbuild/linux-x64`: `0.25.9` → `0.27.0`
+- `@esbuild/linux-x64`: `0.25.9` → `0.25.12` (синхронизация с esbuild)
 
 ### Production Dependencies
 
