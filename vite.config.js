@@ -7,9 +7,14 @@ export default defineConfig(({ mode }) => {
 	// - production для build
 	console.log(`🎨 Vite mode: ${mode}, NODE_ENV: ${process.env.NODE_ENV}`);
 
-	// Определяем среду по порту для изоляции кеша
+	// Определяем среду по NODE_ENV или порту
 	const port = parseInt(process.env.PORT || "3000");
-	const envSuffix = port === 3001 ? "production" : port === 3002 ? "test" : "development";
+	let envSuffix = "development";
+	if (process.env.NODE_ENV === "production" || port === 3001) {
+		envSuffix = "production";
+	} else if (process.env.NODE_ENV === "test" || port === 3002) {
+		envSuffix = "test";
+	}
 
 	return {
 		plugins: [sveltekit()],
